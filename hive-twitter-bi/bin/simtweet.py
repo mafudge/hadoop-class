@@ -7,7 +7,6 @@ import sys
 import getopt
 
 
-
 users = [
         { "name" : "ojouglad", "tweet_prob" : 1, "pos" : 0.8, "neg" : 0.85 },
         { "name" : "lkarfurless", "tweet_prob" : 0.75, "pos" : 0.5, "neg" : 0.6 },
@@ -200,7 +199,7 @@ def neutralTweet(neutral):
     return random.choice(neutral)
 
 def tweet(timeStamp,user,text):
-    id = int(uuid.uuid4()) & (1<<64)-1
+    id = int(uuid.uuid4()) & (1<<62)-1
     unixtime = timeStamp
     timestamp= toTimeString(timeStamp)
     tweet = { "id" : id,
@@ -224,6 +223,6 @@ def randomUnixTimestamp(startTimeString, endTimeString, format_string = '%m/%d/%
 count, startDate, endDate, outFormat = getCommandArgs(sys.argv[1:])
 tweets = generateTweets(users, count, startDate, endDate, outFormat)
 if outFormat =='json':
-    print(toJson(tweets))
+    print(toJson(tweets),end='')
 else:
-    print(toPsv(tweets))
+    print(toPsv(tweets),end='')
