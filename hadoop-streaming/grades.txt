@@ -1,0 +1,12 @@
+ist195	A
+ist195	B
+ist195	C
+ist195	A
+ist195	A
+ist256	B
+ist256	F
+ist256	B
+ist256	A
+ist359	A
+ist359	A
+ist359	C
